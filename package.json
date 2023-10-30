@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "e2e"
+  ],
+  "scripts": {
+    "build:client": "yarn workspace movie-reviewer-client build",
+    "dev": "yarn workspace movie-reviewer-server dev",
+    "dev:debug": "yarn workspace movie-reviewer-server dev:debug",
+    "heroku-postbuild": "yarn workspace movie-reviewer-client build",
+    "start": "yarn workspace movie-reviewer-server start",
+    "dev:cypress": "yarn workspace movie-reviewer-server dev:e2e",
+    "e2e:open": "yarn workspace movie-reviewer-e2e e2e:open",
+    "e2e:run": "yarn workspace movie-reviewer-e2e e2e:run"
+  },
+  "engines": {
+    "node": "^16.18"
+  }
+}
