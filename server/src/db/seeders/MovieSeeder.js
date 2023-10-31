@@ -7,7 +7,7 @@ class MovieSeeder {
         title: "Dune 2",
       },
       {
-        title: "5 nighter a Freds",
+        title: "Five Nights at Freddy's",
       },
       {
         title: "The Exorcist",
