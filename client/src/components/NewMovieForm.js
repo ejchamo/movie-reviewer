@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import ErrorList from "./layout/ErrorList";
+import translateServerErrors from "../services/translateServerErrors";
 
 const NewMovieForm = (props) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [errors, setErrors] = useState([]);
   const [newMovie, setNewMovie] = useState({
     title: "",
   });
@@ -16,11 +19,16 @@ const NewMovieForm = (props) => {
         }),
         body: JSON.stringify(newMovieData),
       });
-
       if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`;
-        const error = new Error(errorMessage);
-        throw error;
+        if (response.status === 422) {
+          const errorBody = await response.json();
+          const newErrors = translateServerErrors(errorBody.errors);
+          return setErrors(newErrors);
+        } else {
+          const errorMessage = `${response.status} (${response.statusText})`;
+          const error = new Error(errorMessage);
+          throw error;
+        }
       } else {
         setShouldRedirect(true);
       }
@@ -48,7 +56,7 @@ const NewMovieForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Add a New Movie</h2>
-
+      <ErrorList errors={errors} />
       <label>
         Movie Title:
         <input type="text" name="title" onChange={handleInputChange} value={newMovie.title} />
