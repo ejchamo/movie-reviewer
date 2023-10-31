@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const MoviesList = (props) => {
   const [movies, setMovies] = useState([]);
@@ -23,7 +24,11 @@ const MoviesList = (props) => {
   }, []);
 
   const moviesListItems = movies.map((movieItem) => {
-    return <li key={movieItem.id}>{movieItem.title}</li>;
+    return (
+      <li key={movieItem.id}>
+        <Link to={`/movies/${movieItem.id}`}>{movieItem.title}</Link>
+      </li>
+    );
   });
 
   return (
