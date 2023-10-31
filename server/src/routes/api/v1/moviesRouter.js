@@ -12,4 +12,14 @@ moviesRouter.get("/", async (req, res) => {
   }
 });
 
+moviesRouter.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const movie = await Movie.query().findById(id);
+    return res.status(200).json({ movie });
+  } catch (err) {
+    return res.status(500).json({ errors: err });
+  }
+});
+
 export default moviesRouter;
