@@ -54,9 +54,7 @@ const NewMovieForm = (props) => {
         <input type="text" name="title" onChange={handleInputChange} value={newMovie.title} />
       </label>
 
-      <div className="button-group">
-        <input className="button" type="submit" value="Submit" />
-      </div>
+      <input className="button" type="submit" value="Submit" />
     </form>
   );
 };

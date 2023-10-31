@@ -13,8 +13,7 @@ moviesRouter.get("/", async (req, res) => {
 });
 
 moviesRouter.post("/", async (req, res) => {
-  const { body } = req;
-  const { title } = body;
+  const { title } = req.body;
   try {
     const newMovie = await Movie.query().insertAndFetch({
       title,
