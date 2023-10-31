@@ -5,7 +5,7 @@ class Movie extends Model {
     return "movies";
   }
 
-  static jsonSchema() {
+  static get jsonSchema() {
     return {
       type: "object",
       required: ["title"],
