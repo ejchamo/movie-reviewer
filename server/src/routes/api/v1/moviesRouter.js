@@ -12,4 +12,18 @@ moviesRouter.get("/", async (req, res) => {
   }
 });
 
+moviesRouter.post("/", async (req, res) => {
+  const { body } = req;
+  const { title } = body;
+  try {
+    const newMovie = await Movie.query().insertAndFetch({
+      title,
+    });
+    return res.status(201).json({ title: newMovie });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ errors: error });
+  }
+});
+
 export default moviesRouter;
