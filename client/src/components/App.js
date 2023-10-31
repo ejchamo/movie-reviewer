@@ -9,6 +9,7 @@ import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
 import MoviesList from "./MoviesList";
 import NewMovieForm from "./NewMovieForm";
+import MovieShow from "./MovieShow";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -33,6 +34,7 @@ const App = (props) => {
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/movies/new" component={NewMovieForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
+        <Route exact path="/movies/:id" component={MovieShow} />
       </Switch>
     </Router>
   );
