@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import ReviewList from "./ReviewList";
 
 const MovieShow = (props) => {
   const [movie, setMovie] = useState({
     title: "",
+    reviews: [],
   });
 
   const getMovie = async () => {
@@ -15,6 +17,7 @@ const MovieShow = (props) => {
         throw error;
       }
       const body = await response.json();
+
       setMovie(body.movie);
     } catch (err) {
       console.error(`Error in fetch: ${err.message}`);
@@ -25,7 +28,12 @@ const MovieShow = (props) => {
     getMovie();
   }, []);
 
-  return <h1>{movie.title}</h1>;
+  return (
+    <>
+      <h1>{movie.title}</h1>
+      <ReviewList reviews={movie.reviews} />
+    </>
+  );
 };
 
 export default MovieShow;
