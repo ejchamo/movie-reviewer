@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReviewList from "./ReviewList";
+import { Link } from "react-router-dom";
 
 const MovieShow = (props) => {
   const [movie, setMovie] = useState({
@@ -31,6 +32,7 @@ const MovieShow = (props) => {
   return (
     <>
       <h1>{movie.title}</h1>
+      <Link to={`/movies/${props.match.params.id}/reviewForm`}>Add a new review here!</Link>
       <ReviewList reviews={movie.reviews} />
     </>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { hot } from "react-hot-loader/root";
+import NewReviewForm from "./NewReviewForm";
 
 import getCurrentUser from "../services/getCurrentUser";
 import "../assets/scss/main.scss";
@@ -10,6 +11,7 @@ import TopBar from "./layout/TopBar";
 import MoviesList from "./MoviesList";
 import NewMovieForm from "./NewMovieForm";
 import MovieShow from "./MovieShow";
+import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -35,6 +37,12 @@ const App = (props) => {
         <Route exact path="/movies/new" component={NewMovieForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route exact path="/movies/:id" component={MovieShow} />
+        <AuthenticatedRoute
+          exact={true}
+          path="/movies/:id/reviewForm"
+          component={NewReviewForm}
+          user={currentUser}
+        />
       </Switch>
     </Router>
   );
