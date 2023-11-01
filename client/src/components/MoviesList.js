@@ -29,7 +29,7 @@ const MoviesList = (props) => {
         <div className="radius bordered shadow card" key={movieItem.id}>
           <div className="card-section">
             <Link className="movie-title" to={`/movies/${movieItem.id}`}>
-              <div className="card-divider">{movieItem.title}</div>
+              {movieItem.title}
             </Link>
           </div>
         </div>
