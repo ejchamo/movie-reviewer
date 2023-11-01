@@ -8,9 +8,9 @@ class Review extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["reviewContent"],
+      required: ["content"],
       properties: {
-        reviewContent: { type: "string" },
+        content: { type: "string" },
       },
     };
   }

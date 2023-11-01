@@ -10,7 +10,7 @@ exports.up = async (knex) => {
     table.bigIncrements("id");
     table.bigInteger("movieId").notNullable().unsigned().index().references("movies.id");
     table.bigInteger("userId").notNullable().unsigned().index().references("users.id");
-    table.string("reviewContent").notNullable();
+    table.string("content").notNullable();
     table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now());
     table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now());
   });

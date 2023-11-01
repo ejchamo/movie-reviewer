@@ -48,18 +48,6 @@ class User extends uniqueFunc(Model) {
     const { Movie, Review } = require("./index.js");
 
     return {
-      movies: {
-        relation: Model.ManyToManyRelation,
-        modelClass: Movie,
-        join: {
-          from: "users.id",
-          through: {
-            from: "reviews.userId",
-            to: "reviews.movieId",
-          },
-          to: "movies.id",
-        },
-      },
       reviews: {
         relation: Model.HasManyRelation,
         modelClass: Review,

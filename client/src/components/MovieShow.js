@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import ReviewList from "./ReviewList";
 
 const MovieShow = (props) => {
@@ -29,10 +29,10 @@ const MovieShow = (props) => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <h1>{movie.title}</h1>
       <ReviewList reviews={movie.reviews} />
-    </Fragment>
+    </>
   );
 };
 
