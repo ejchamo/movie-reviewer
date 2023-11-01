@@ -4,7 +4,7 @@ import ErrorList from "./layout/ErrorList";
 import translateServerErrors from "../services/translateServerErrors";
 
 const NewReviewForm = (props) => {
-  //   const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
   const [errors, setErrors] = useState([]);
   const [newReview, setNewReview] = useState({
     content: "",
@@ -12,9 +12,38 @@ const NewReviewForm = (props) => {
 
   const user = props.user;
 
-  //   if (shouldRedirect) {
-  //     return <Redirect push to="/" />;
-  //   }
+  const movieId = props.computedMatch.params.id;
+
+  const postReview = async (newReview) => {
+    try {
+      const response = await fetch(`/api/v1/movies/${movieId}/reviewForm`, {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+        body: JSON.stringify({ ...newReview, userId: user.id }),
+      });
+      if (!response.ok) {
+        if (response.status === 422) {
+          const errorBody = await response.json();
+          const newErrors = translateServerErrors(errorBody.errors);
+          return setErrors(newErrors);
+        } else {
+          const errorMessage = `${response.status} (${response.statusText})`;
+          const error = new Error(errorMessage);
+          throw error;
+        }
+      } else {
+        setShouldRedirect(true);
+      }
+    } catch (error) {
+      console.error(`Error in fetch: ${error.message}`);
+    }
+  };
+
+  if (shouldRedirect) {
+    return <Redirect push to={`/movies/${movieId}`} />;
+  }
 
   const handleInputChange = (event) => {
     setNewReview({
@@ -25,7 +54,7 @@ const NewReviewForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // postReview(newReview);
+    postReview(newReview);
   };
 
   return (
