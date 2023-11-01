@@ -3,7 +3,6 @@ import { Movie } from "../../../models/index.js";
 import { ValidationError } from "objection";
 import cleanUserInput from "../../../services/CleanUserInput.js";
 import MovieSerializer from "../../../serializers/MovieSerializer.js";
-import ReviewSerializer from "../../../serializers/ReviewSerializer.js";
 
 const moviesRouter = new express.Router();
 
