@@ -36,7 +36,7 @@ const RegistrationForm = () => {
     if (username.trim() == "") {
       newErrors = {
         ...newErrors,
-        username: "is invalid",
+        username: "is required",
       };
     }
 
