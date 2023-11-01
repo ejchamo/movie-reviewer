@@ -1,5 +1,5 @@
 class MovieSerializer {
-  static async getDetails(movie) {
+  static getDetails(movie) {
     const allowedAttributes = ["title"];
 
     const serializedMovie = {};
