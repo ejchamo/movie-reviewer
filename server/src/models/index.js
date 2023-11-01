@@ -2,4 +2,5 @@
 const User = require("./User.js");
 const Movie = require("./Movie.js");
 const Model = require("./Model.js");
-module.exports = { User, Movie, Model };
+const Review = require("./Review.js");
+module.exports = { User, Movie, Model, Review };
