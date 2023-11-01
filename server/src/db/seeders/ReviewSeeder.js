@@ -6,17 +6,17 @@ class ReviewSeeder {
       {
         movieId: 1,
         userId: 1,
-        review: "soy good",
+        reviewContent: "soy good",
       },
       {
         movieId: 2,
         userId: 2,
-        review: "too scary",
+        reviewContent: "too scary",
       },
       {
         movieId: 3,
         userId: 1,
-        review: "love love this",
+        reviewContent: "love love this",
       },
     ];
 

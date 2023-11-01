@@ -17,7 +17,6 @@ const MovieShow = (props) => {
         throw error;
       }
       const body = await response.json();
-      console.log(body);
 
       setMovie(body.movie);
     } catch (err) {
