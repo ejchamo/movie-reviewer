@@ -6,22 +6,22 @@ class UserSeeder {
       {
         email: "tyler@gmail.com",
         username: "Tyler",
-        cryptedPassword: "123",
+        password: "123",
       },
       {
         email: "skylfw@launch.com",
         username: "SKY",
-        cryptedPassword: "skyIsCool",
+        password: "skyIsCool",
       },
       {
         email: "ej@aol.com",
         username: "Eeee Jay",
-        cryptedPassword: "hello123",
+        password: "hello123",
       },
     ];
 
     for (const user of usersData) {
-      const currentUser = await User.query().findOne(user);
+      const currentUser = await User.query().findOne({ email: user.email });
       if (!currentUser) {
         await User.query().insert(user);
       }
