@@ -1,5 +1,7 @@
 import express from "express";
 import { Movie } from "../../../models/index.js";
+import { ValidationError } from "objection";
+import cleanUserInput from "../../../services/CleanUserInput.js";
 import MovieSerializer from "../../../serializers/MovieSerializer.js";
 
 const moviesRouter = new express.Router();
@@ -21,6 +23,24 @@ moviesRouter.get("/:id", async (req, res) => {
     return res.status(200).json({ movie: serializedMovie });
   } catch (err) {
     return res.status(500).json({ errors: err });
+  }
+});
+
+moviesRouter.post("/", async (req, res) => {
+  const { body } = req;
+  const formInput = cleanUserInput(body);
+  const { title } = formInput;
+
+  try {
+    const newMovie = await Movie.query().insertAndFetch({
+      title,
+    });
+    return res.status(201).json({ title: newMovie });
+  } catch (error) {
+    if (error instanceof ValidationError) {
+      return res.status(422).json({ errors: error.data });
+    }
+    return res.status(500).json({ errors: error });
   }
 });
 

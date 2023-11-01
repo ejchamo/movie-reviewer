@@ -8,6 +8,7 @@ import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
 import MoviesList from "./MoviesList";
+import NewMovieForm from "./NewMovieForm";
 import MovieShow from "./MovieShow";
 
 const App = (props) => {
@@ -31,6 +32,7 @@ const App = (props) => {
       <Switch>
         <Route exact path="/" component={MoviesList} />
         <Route exact path="/users/new" component={RegistrationForm} />
+        <Route exact path="/movies/new" component={NewMovieForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route exact path="/movies/:id" component={MovieShow} />
       </Switch>
