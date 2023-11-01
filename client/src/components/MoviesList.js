@@ -25,16 +25,26 @@ const MoviesList = (props) => {
 
   const moviesListItems = movies.map((movieItem) => {
     return (
-      <li key={movieItem.id}>
-        <Link to={`/movies/${movieItem.id}`}>{movieItem.title}</Link>
-      </li>
+      <div className="cell">
+        <div className="radius bordered shadow card" key={movieItem.id}>
+          <div className="card-section">
+            <Link className="movie-title" to={`/movies/${movieItem.id}`}>
+              <div className="card-divider">{movieItem.title}</div>
+            </Link>
+          </div>
+        </div>
+      </div>
     );
   });
 
   return (
     <div>
       <h1>Latest Movies</h1>
-      <ul>{moviesListItems}</ul>
+      <div className="grid-container">
+        <div className="grid-x grid-padding-x small-up-2 medium-up-4 large-up-6">
+          {moviesListItems}
+        </div>
+      </div>
     </div>
   );
 };

@@ -12,3 +12,63 @@
   -moz-tab-size: 4;
   tab-size: 4;
 }
+
+$midnight-blue: #14213d;
+$pumpkin-orange: #fca311;
+$cool-gray: #e5e5e5;
+
+.top-bar .button {
+  background-color: $pumpkin-orange;
+  color: $midnight-blue;
+}
+
+ul li {
+  list-style: none;
+  color: $pumpkin-orange;
+}
+
+.top-bar {
+  background-color: $midnight-blue;
+}
+
+.top-bar .menu {
+  background-color: $midnight-blue;
+}
+
+.top-bar .menu-text {
+  color: $pumpkin-orange;
+}
+
+.top-bar .menu a {
+  color: $cool-gray;
+}
+
+.top-bar .menu .button {
+  color: $midnight-blue;
+}
+
+.top-bar .menu .button:hover {
+  background-color: #fcb33d;
+  color: $midnight-blue;
+}
+
+.card {
+  height: 200px;
+  width: 150px;
+  // background-color: $cool-gray;
+}
+
+body {
+  text-align: center;
+}
+
+.movie-title {
+  background-color: $pumpkin-orange;
+}
+
+.card-section {
+  height: 200px;
+  width: 150px;
+  background-size: contain;
+  background-image: url("https://www.movieposters.com/cdn/shop/products/pulpfiction.2436_480x.progressive.jpg?v=1620048742");
+}
