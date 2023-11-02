@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import ErrorList from "./layout/ErrorList";
 import translateServerErrors from "../services/translateServerErrors";
+import getMovie from "../apiClient/getMovie";
 
 const NewReviewForm = (props) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -9,10 +10,20 @@ const NewReviewForm = (props) => {
   const [newReview, setNewReview] = useState({
     content: "",
   });
+  const [movie, setMovie] = useState({
+    title: "",
+    reviews: [],
+  });
 
   const user = props.user;
 
   const movieId = props.computedMatch.params.id;
+
+  useEffect(() => {
+    getMovie(movieId).then((parseMovieData) => {
+      setMovie(parseMovieData);
+    });
+  }, []);
 
   const postReview = async (newReview) => {
     try {
@@ -59,8 +70,7 @@ const NewReviewForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Add a New Review</h1>
-      <h3>Movie Title</h3>
+      <h1>Add a New Review for {movie.title}</h1>
       <ErrorList errors={errors} />
       <h5>{user.email}</h5>
       <label>
