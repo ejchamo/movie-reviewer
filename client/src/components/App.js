@@ -36,7 +36,14 @@ const App = (props) => {
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/movies/new" component={NewMovieForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
-        <Route exact path="/movies/:id" component={MovieShow} />
+        <Route
+          exact
+          path="/movies/:id"
+          render={(props) => {
+            return <MovieShow user={currentUser} {...props} />;
+          }}
+        />
+
         <AuthenticatedRoute
           exact={true}
           path="/movies/:id/reviewForm"

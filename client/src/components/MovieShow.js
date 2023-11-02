@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReviewList from "./ReviewList";
 import { Link } from "react-router-dom";
+import getCurrentUser from "../services/getCurrentUser";
 
 const MovieShow = (props) => {
   const [movie, setMovie] = useState({
@@ -29,10 +30,17 @@ const MovieShow = (props) => {
     getMovie();
   }, []);
 
+  let newReviewFormLink;
+  if (props.user) {
+    newReviewFormLink = (
+      <Link to={`/movies/${props.match.params.id}/reviewForm`}>Add a new review here!</Link>
+    );
+  }
+
   return (
     <>
       <h1>{movie.title}</h1>
-      <Link to={`/movies/${props.match.params.id}/reviewForm`}>Add a new review here!</Link>
+      {newReviewFormLink}
       <ReviewList reviews={movie.reviews} />
     </>
   );

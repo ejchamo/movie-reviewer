@@ -7,7 +7,7 @@ import cleanUserInput from "../../../services/CleanUserInput.js";
 const movieReviewRouter = new express.Router({ mergeParams: true });
 
 movieReviewRouter.post("/", async (req, res) => {
-  const movieId = req.params.movieId;
+  const movieId = req.params.id;
   const { body } = req;
   const formInput = cleanUserInput(body);
   const { content, userId } = formInput;
@@ -20,11 +20,9 @@ movieReviewRouter.post("/", async (req, res) => {
     });
     return res.status(201).json({ newReview });
   } catch (error) {
-    console.log(error);
     if (error instanceof ValidationError) {
       return res.status(422).json({ errors: error.data });
     }
-    console.log(error);
     return res.status(500).json({ errors: error });
   }
 });
