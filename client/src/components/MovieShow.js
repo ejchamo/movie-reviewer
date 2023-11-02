@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReviewList from "./ReviewList";
 import { Link } from "react-router-dom";
-import getMovie from "../apiClient/getMovie.js";
+import getMovie from "../services/getMovie.js";
 
 const MovieShow = (props) => {
   const [movie, setMovie] = useState({
@@ -28,7 +28,7 @@ const MovieShow = (props) => {
     <>
       <h1>{movie.title}</h1>
       {newReviewFormLink}
-      <ReviewList reviews={movie.reviews} />
+      <ReviewList reviews={movie.reviews} user={props.user} />
     </>
   );
 };
