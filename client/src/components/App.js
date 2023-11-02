@@ -11,7 +11,9 @@ import TopBar from "./layout/TopBar";
 import MoviesList from "./MoviesList";
 import NewMovieForm from "./NewMovieForm";
 import MovieShow from "./MovieShow";
+import UserProfile from "./UserProfile";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
+
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -35,7 +37,14 @@ const App = (props) => {
         <Route exact path="/" component={MoviesList} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/movies/new" component={NewMovieForm} />
-        <Route exact path="/user-sessions/new" component={SignInForm} />
+        <Route exact path="/user-sessions/new" component={SignInForm} />  
+        <Route
+          exact
+          path="/profile"
+          render={(props) => {
+            return <UserProfile userData={currentUser} {...props} />;
+          }}
+        />
         <Route
           exact
           path="/movies/:id"
@@ -43,7 +52,6 @@ const App = (props) => {
             return <MovieShow user={currentUser} {...props} />;
           }}
         />
-
         <AuthenticatedRoute
           exact={true}
           path="/movies/:id/reviewForm"
