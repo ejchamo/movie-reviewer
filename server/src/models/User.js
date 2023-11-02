@@ -6,7 +6,7 @@ const Model = require("./Model");
 const saltRounds = 10;
 
 const uniqueFunc = unique({
-  fields: ["email"],
+  fields: ["email", "username"],
   identifiers: ["id"],
 });
 
@@ -30,6 +30,7 @@ class User extends uniqueFunc(Model) {
       properties: {
         email: { type: "string", pattern: "^\\S+@\\S+\\.\\S+$" },
         cryptedPassword: { type: "string" },
+        username: { type: "string", minLength: 2 },
       },
     };
   }
