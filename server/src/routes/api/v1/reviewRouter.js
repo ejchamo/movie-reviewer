@@ -6,9 +6,7 @@ const reviewRouter = new express.Router();
 reviewRouter.delete("/:id", async (req, res) => {
   const userId = req.body.userId;
   const reviewId = req.body.reviewId;
-
-  const review = await Review.query().findById(reviewId);
-  const reviewUserId = review.userId;
+  const reviewUserId = req.body.reviewUserID;
 
   if (userId === reviewUserId) {
     try {

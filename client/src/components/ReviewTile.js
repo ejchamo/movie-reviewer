@@ -4,7 +4,7 @@ import deleteReview from "../services/DeleteReview";
 const ReviewTile = (props) => {
   const deleteOnClick = async () => {
     console.log(props.movie);
-    const response = await deleteReview(props.user.id, props.review.id);
+    const response = await deleteReview(props.user.id, props.review.id, props.review.userId);
 
     if (response.status === 200) {
       const newReviews = props.movie.reviews.filter((review) => {

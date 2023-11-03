@@ -1,11 +1,11 @@
-const deleteReview = async (userId, reviewId) => {
+const deleteReview = async (userId, reviewId, reviewUserID) => {
   try {
     const deletedRows = await fetch(`/api/v1/reviews/${reviewId}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
       }),
-      body: JSON.stringify({ userId, reviewId }),
+      body: JSON.stringify({ userId, reviewId, reviewUserID }),
     });
     return deletedRows;
   } catch (err) {
