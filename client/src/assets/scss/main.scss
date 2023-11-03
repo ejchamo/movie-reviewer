@@ -17,10 +17,6 @@ $midnight-blue: #14213d;
 $pumpkin-orange: #fca311;
 $cool-gray: #e5e5e5;
 
-.top-bar .button {
-  background-color: $pumpkin-orange;
-  color: $midnight-blue;
-}
 
 ul li {
   list-style: none;
@@ -29,27 +25,23 @@ ul li {
 
 .top-bar {
   background-color: $midnight-blue;
-}
-
-.top-bar .menu {
-  background-color: $midnight-blue;
-}
-
-.top-bar .menu-text {
-  color: $pumpkin-orange;
-}
-
-.top-bar .menu a {
-  color: $cool-gray;
-}
-
-.top-bar .menu .button {
-  color: $midnight-blue;
-}
-
-.top-bar .menu .button:hover {
-  background-color: #fcb33d;
-  color: $midnight-blue;
+  .menu{
+    background-color: $midnight-blue;
+    a {
+      color: $cool-gray;
+    }
+    .button {
+      background-color: $pumpkin-orange;
+      color: $midnight-blue;
+    }
+    .button:hover {
+      background-color: #fcb33d;
+      color: $midnight-blue;
+    }
+  }
+  .menu-text {
+    color: $pumpkin-orange;
+  }
 }
 
 .card {
