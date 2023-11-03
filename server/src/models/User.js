@@ -6,7 +6,7 @@ const Model = require("./Model");
 const saltRounds = 10;
 
 const uniqueFunc = unique({
-  fields: ["email"],
+  fields: ["email", "username"],
   identifiers: ["id"],
 });
 
@@ -30,6 +30,7 @@ class User extends uniqueFunc(Model) {
       properties: {
         email: { type: "string", pattern: "^\\S+@\\S+\\.\\S+$" },
         cryptedPassword: { type: "string" },
+        username: { type: "string", minLength: 2 },
       },
     };
   }
@@ -42,6 +43,21 @@ class User extends uniqueFunc(Model) {
     }
 
     return serializedJson;
+  }
+
+  static get relationMappings() {
+    const { Movie, Review } = require("./index.js");
+
+    return {
+      reviews: {
+        relation: Model.HasManyRelation,
+        modelClass: Review,
+        join: {
+          from: "users.id",
+          to: "reviews.userId",
+        },
+      },
+    };
   }
 }
 
