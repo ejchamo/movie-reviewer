@@ -16,12 +16,8 @@ const ReviewTile = (props) => {
   };
 
   let deleteButton;
-  if (props.user) {
-    const reviewUserId = props.review.userId;
-    const currentUser = props.user.id;
-    if (reviewUserId === currentUser) {
-      deleteButton = <input type="submit" onClick={deleteOnClick} value="Delete" />;
-    }
+  if (props.user && props.review.userId === props.user.id) {
+    deleteButton = <input type="submit" onClick={deleteOnClick} value="Delete" />;
   }
 
   return (
