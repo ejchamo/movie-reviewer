@@ -62,13 +62,19 @@ body {
   text-align: center;
 }
 
-.movie-title {
-  background-color: $pumpkin-orange;
-}
-
 .card-section {
   height: 200px;
   width: 150px;
   background-size: contain;
   // background-image: url("https://www.movieposters.com/cdn/shop/products/pulpfiction.2436_480x.progressive.jpg?v=1620048742");
+}
+
+.button {
+  background-color: $pumpkin-orange;
+  color: $midnight-blue;
+}
+
+.movie-title-input {
+  width: 50%;
+  margin: 0 auto;
 }
