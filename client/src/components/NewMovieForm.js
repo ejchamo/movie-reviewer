@@ -59,7 +59,13 @@ const NewMovieForm = (props) => {
       <ErrorList errors={errors} />
       <label>
         Movie Title:
-        <input type="text" name="title" onChange={handleInputChange} value={newMovie.title} />
+        <input
+          className="movie-title-input"
+          type="text"
+          name="title"
+          onChange={handleInputChange}
+          value={newMovie.title}
+        />
       </label>
 
       <input className="button" type="submit" value="Submit" />

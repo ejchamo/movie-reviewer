@@ -13,6 +13,62 @@
   tab-size: 4;
 }
 
+$midnight-blue: #14213d;
+$pumpkin-orange: #fca311;
+$cool-gray: #e5e5e5;
+
+
+ul li {
+  list-style: none;
+  color: $pumpkin-orange;
+}
+
+.top-bar {
+  background-color: $midnight-blue;
+  .menu{
+    background-color: $midnight-blue;
+    a {
+      color: $cool-gray;
+    }
+    .button {
+      background-color: $pumpkin-orange;
+      color: $midnight-blue;
+    }
+    .button:hover {
+      background-color: #fcb33d;
+      color: $midnight-blue;
+    }
+  }
+  .menu-text {
+    color: $pumpkin-orange;
+  }
+}
+
+.card {
+  height: 200px;
+  width: 150px;
+}
+
+body {
+  text-align: center;
+}
+
+.card-section {
+  height: 200px;
+  width: 150px;
+  background-size: contain;
+}
+
+.button {
+  background-color: $pumpkin-orange;
+  color: $midnight-blue;
+}
+
+.movie-title-input {
+  width: 50%;
+  margin: 15px auto;
+}
+
 .profile-pic {
   background-color: grey;
   width: 10rem;
