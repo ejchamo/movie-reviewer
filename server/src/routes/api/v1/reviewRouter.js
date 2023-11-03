@@ -10,9 +10,7 @@ reviewRouter.delete("/:id", async (req, res) => {
 
   if (userId === reviewUserId) {
     try {
-      console.log("userId in delete try block", userId);
       const deletedRows = await Review.query().deleteById(reviewId);
-      console.log("return from delete query", deletedRows);
       res.status(200).json({ deletedRows });
     } catch (error) {
       res.status(500).json({ errors: error });
