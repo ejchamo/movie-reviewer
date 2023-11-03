@@ -28,7 +28,7 @@ const MovieShow = (props) => {
     <>
       <h1>{movie.title}</h1>
       {newReviewFormLink}
-      <ReviewList reviews={movie.reviews} />
+      <ReviewList reviews={movie.reviews} user={props.user} />
     </>
   );
 };

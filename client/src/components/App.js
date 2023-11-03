@@ -13,7 +13,7 @@ import NewMovieForm from "./NewMovieForm";
 import MovieShow from "./MovieShow";
 import UserProfile from "./UserProfile";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
-
+import EditReviewForm from "./EditReviewForm";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -37,7 +37,12 @@ const App = (props) => {
         <Route exact path="/" component={MoviesList} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/movies/new" component={NewMovieForm} />
-        <Route exact path="/user-sessions/new" component={SignInForm} />  
+        <Route exact path="/user-sessions/new" component={SignInForm} />
+        <Route
+          exact
+          path="/movies/:id/reviews/:id/edit"
+          render={(props) => <EditReviewForm user={currentUser} />}
+        />
         <Route
           exact
           path="/profile"
