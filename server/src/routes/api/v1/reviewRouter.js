@@ -4,7 +4,7 @@ import { Review } from "../../../models/index.js";
 const reviewRouter = new express.Router();
 
 reviewRouter.delete("/:id", async (req, res) => {
-  const userId = req.body.userId;
+  const userId = req.user.id;
   const reviewId = req.body.reviewId;
   const reviewUserId = req.body.reviewUserID;
 
