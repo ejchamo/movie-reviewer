@@ -7,6 +7,7 @@ const deleteReview = async (userId, reviewId) => {
       }),
       body: JSON.stringify({ userId, reviewId }),
     });
+    return deletedRows;
   } catch (err) {
     console.error(`Error in fetch: ${err.message}`);
   }
