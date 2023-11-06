@@ -15,21 +15,55 @@ class ReviewSeeder {
         movieId: dune2.id,
         userId: ej.id,
         content: "soy good",
+        rating: 10,
+      },
+      {
+        movieId: dune2.id,
+        userId: sky.id,
+        content: "too dry",
+        rating: 4,
+      },
+      {
+        movieId: dune2.id,
+        userId: tyler.id,
+        content: "love this",
+        rating: 8,
       },
       {
         movieId: fiveNights.id,
         userId: ej.id,
         content: "too scary",
+        rating: 2,
+      },
+      {
+        movieId: fiveNights.id,
+        userId: sky.id,
+        content: "so lit",
+        rating: 10,
+      },
+      {
+        movieId: fiveNights.id,
+        userId: tyler.id,
+        content: "amazing",
+        rating: 10,
       },
       {
         movieId: theExorcist.id,
-        userId: tyler.id,
-        content: "love love this",
+        userId: ej.id,
+        content: "too scary",
+        rating: 1,
       },
       {
         movieId: theExorcist.id,
         userId: sky.id,
-        content: "so boring",
+        content: "not as good as the original",
+        rating: 1,
+      },
+      {
+        movieId: theExorcist.id,
+        userId: tyler.id,
+        content: "disappointing",
+        rating: 1,
       },
     ];
 
