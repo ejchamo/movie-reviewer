@@ -9,7 +9,7 @@ const NewReviewForm = (props) => {
   const [errors, setErrors] = useState([]);
   const [newReview, setNewReview] = useState({
     content: "",
-    rating: undefined,
+    rating: "",
   });
   const [movie, setMovie] = useState({
     title: "",
