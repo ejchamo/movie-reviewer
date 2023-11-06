@@ -12,7 +12,7 @@ class MovieSerializer {
         }
 
         let averageRating = await movie.$relatedQuery("reviews").avg("rating");
-        serializedMovie.averageRating = parseFloat(averageRating[0].avg).toFixed(2);
+        serializedMovie.averageRating = parseFloat(averageRating[0].avg).toFixed(1);
 
         return serializedMovie;
       })
@@ -35,7 +35,7 @@ class MovieSerializer {
     serializedMovie.reviews = serializedReviews;
 
     let averageRating = await movie.$relatedQuery("reviews").avg("rating");
-    serializedMovie.averageRating = parseFloat(averageRating[0].avg).toFixed(2);
+    serializedMovie.averageRating = parseFloat(averageRating[0].avg).toFixed(1);
 
     return serializedMovie;
   }
