@@ -76,21 +76,29 @@ const NewReviewForm = (props) => {
       <h5>{user.email}</h5>
       <label>
         Enter your review:
-        <input type="text" name="content" onChange={handleInputChange} value={newReview.content} />
+        <input
+          className="review-content"
+          type="text"
+          name="content"
+          onChange={handleInputChange}
+          value={newReview.content}
+        />
       </label>
 
       <label>
         Enter your rating:
-        <select name="rating" onChange={handleInputChange}>
-          <option value="" />
-          {[...Array(10)]
-            .map((_, i) => i + 1)
-            .map((i) => (
-              <option key={i} value={i}>
-                {i}
-              </option>
-            ))}
-        </select>
+        <div>
+          <select name="rating" onChange={handleInputChange} className="ratings">
+            <option value="" />
+            {[...Array(10)]
+              .map((_, i) => i + 1)
+              .map((i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+          </select>
+        </div>
       </label>
 
       <input className="button" type="submit" value="Submit" />

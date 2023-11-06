@@ -17,7 +17,6 @@ $midnight-blue: #14213d;
 $pumpkin-orange: #fca311;
 $cool-gray: #e5e5e5;
 
-
 ul li {
   list-style: none;
   color: $pumpkin-orange;
@@ -25,7 +24,7 @@ ul li {
 
 .top-bar {
   background-color: $midnight-blue;
-  .menu{
+  .menu {
     background-color: $midnight-blue;
     a {
       color: $cool-gray;
@@ -74,4 +73,13 @@ body {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
+}
+
+.ratings {
+  width: 50%;
+}
+
+.review-content {
+  width: 50%;
+  margin: 15px auto;
 }

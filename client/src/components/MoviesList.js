@@ -32,9 +32,9 @@ const MoviesList = (props) => {
             <Link className="movie-title" to={`/movies/${movieItem.id}`}>
               {movieItem.title}
             </Link>
+            <div>Rating: {movieItem.averageRating}</div>
           </div>
         </div>
-        <div>Average Rating: {movieItem.averageRating}</div>
       </div>
     );
   });
