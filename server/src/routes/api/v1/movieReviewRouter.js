@@ -11,13 +11,15 @@ movieReviewRouter.post("/", async (req, res) => {
   const userId = req.user.id;
   const { body } = req;
   const formInput = cleanUserInput(body);
-  const { content } = formInput;
+  console.log(formInput);
+  const { content, rating } = formInput;
 
   try {
     const newReview = await Review.query().insertAndFetch({
       movieId,
       userId,
       content,
+      rating: parseInt(rating),
     });
     return res.status(201).json({ newReview });
   } catch (error) {

@@ -9,6 +9,7 @@ const NewReviewForm = (props) => {
   const [errors, setErrors] = useState([]);
   const [newReview, setNewReview] = useState({
     content: "",
+    rating: undefined,
   });
   const [movie, setMovie] = useState({
     title: "",
@@ -57,10 +58,12 @@ const NewReviewForm = (props) => {
   }
 
   const handleInputChange = (event) => {
+    console.log(event.currentTarget.name);
     setNewReview({
       ...newReview,
       [event.currentTarget.name]: event.currentTarget.value,
     });
+    console.log(newReview);
   };
 
   const handleSubmit = (event) => {
@@ -76,6 +79,20 @@ const NewReviewForm = (props) => {
       <label>
         Enter your review:
         <input type="text" name="content" onChange={handleInputChange} value={newReview.content} />
+      </label>
+
+      <label>
+        Enter your rating:
+        <select name="rating" onChange={handleInputChange}>
+          <option value="" />
+          {[...Array(10)]
+            .map((_, i) => i + 1)
+            .map((i) => (
+              <option key={i} value={i}>
+                {i}
+              </option>
+            ))}
+        </select>
       </label>
 
       <input className="button" type="submit" value="Submit" />
