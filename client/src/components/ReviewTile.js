@@ -2,7 +2,6 @@ import React from "react";
 import deleteReview from "../services/DeleteReview";
 
 const ReviewTile = (props) => {
-  console.log(props.review);
   const deleteOnClick = async () => {
     const response = await deleteReview(props.review.id);
 

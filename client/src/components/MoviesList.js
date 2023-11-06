@@ -24,7 +24,6 @@ const MoviesList = (props) => {
   }, []);
 
   const moviesListItems = movies.map((movieItem) => {
-    console.log(movieItem.averageRating);
     return (
       <div className="cell" key={movieItem.id}>
         <div className="radius bordered shadow card" key={movieItem.id}>
