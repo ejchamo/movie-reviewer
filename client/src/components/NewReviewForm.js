@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import ErrorList from "./layout/ErrorList";
 import translateServerErrors from "../services/translateServerErrors";
-import getMovie from "../apiClient/getMovie";
+import getMovie from "../services/getMovie";
 
 const NewReviewForm = (props) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
