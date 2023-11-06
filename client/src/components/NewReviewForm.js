@@ -58,12 +58,10 @@ const NewReviewForm = (props) => {
   }
 
   const handleInputChange = (event) => {
-    console.log(event.currentTarget.name);
     setNewReview({
       ...newReview,
       [event.currentTarget.name]: event.currentTarget.value,
     });
-    console.log(newReview);
   };
 
   const handleSubmit = (event) => {

@@ -1,16 +1,22 @@
 import ReviewSerializer from "./ReviewSerializer.js";
 
 class MovieSerializer {
-  static getDetails(movies) {
+  static async getDetails(movies) {
     const allowedAttributes = ["id", "title"];
 
-    const serializedMovies = movies.map((movie) => {
-      let serializedMovie = {};
-      for (const attribute of allowedAttributes) {
-        serializedMovie[attribute] = movie[attribute];
-      }
-      return serializedMovie;
-    });
+    const serializedMovies = await Promise.all(
+      movies.map(async (movie) => {
+        let serializedMovie = {};
+        for (const attribute of allowedAttributes) {
+          serializedMovie[attribute] = movie[attribute];
+        }
+
+        let averageRating = await movie.$relatedQuery("reviews").avg("rating");
+        serializedMovie.averageRating = parseFloat(averageRating[0].avg).toFixed(2);
+
+        return serializedMovie;
+      })
+    );
 
     return serializedMovies;
   }
@@ -26,8 +32,10 @@ class MovieSerializer {
     const serializedReviews = reviews.map((review) => {
       return ReviewSerializer.cleanReview(review);
     });
-
     serializedMovie.reviews = serializedReviews;
+
+    let averageRating = await movie.$relatedQuery("reviews").avg("rating");
+    serializedMovie.averageRating = parseFloat(averageRating[0].avg).toFixed(2);
 
     return serializedMovie;
   }

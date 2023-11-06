@@ -11,7 +11,6 @@ movieReviewRouter.post("/", async (req, res) => {
   const userId = req.user.id;
   const { body } = req;
   const formInput = cleanUserInput(body);
-  console.log(formInput);
   const { content, rating } = formInput;
 
   try {
