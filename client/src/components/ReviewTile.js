@@ -2,6 +2,7 @@ import React from "react";
 import deleteReview from "../services/DeleteReview";
 
 const ReviewTile = (props) => {
+  console.log(props.review);
   const deleteOnClick = async () => {
     const response = await deleteReview(props.review.id);
 
@@ -22,7 +23,7 @@ const ReviewTile = (props) => {
 
   return (
     <li>
-      {props.review.content}
+      {props.review.content} - rating: {props.review.rating}
       {deleteButton}
     </li>
   );
