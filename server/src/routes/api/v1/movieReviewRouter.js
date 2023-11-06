@@ -8,9 +8,10 @@ const movieReviewRouter = new express.Router({ mergeParams: true });
 
 movieReviewRouter.post("/", async (req, res) => {
   const movieId = req.params.id;
+  const userId = req.user.id;
   const { body } = req;
   const formInput = cleanUserInput(body);
-  const { content, userId } = formInput;
+  const { content } = formInput;
 
   try {
     const newReview = await Review.query().insertAndFetch({

@@ -32,7 +32,7 @@ const NewReviewForm = (props) => {
         headers: new Headers({
           "Content-Type": "application/json",
         }),
-        body: JSON.stringify({ ...newReview, userId: user.id }),
+        body: JSON.stringify({ ...newReview }),
       });
       if (!response.ok) {
         if (response.status === 422) {
