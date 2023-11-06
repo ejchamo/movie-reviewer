@@ -1,6 +1,6 @@
 class ReviewSerializer {
   static cleanReview(review) {
-    const allowedAttributes = ["id", "content"];
+    const allowedAttributes = ["id", "content", "rating"];
 
     const serializedReview = {};
     for (const attribute of allowedAttributes) {
