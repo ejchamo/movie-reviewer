@@ -41,7 +41,7 @@ const App = (props) => {
         <Route
           exact
           path="/movies/:id/reviews/:id/edit"
-          render={(props) => <EditReviewForm user={currentUser} />}
+          render={(props) => <EditReviewForm user={currentUser} {...props} />}
         />
         <Route
           exact

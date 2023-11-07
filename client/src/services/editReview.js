@@ -1,12 +1,14 @@
-const editReview = async (userId, reviewId) => {
+const editReview = async (reviewId, userId, content) => {
   try {
-    await fetch(`/api/v1/reviews/${reviewId}`, {
+    const response = await fetch(`/api/v1/reviews/${reviewId}`, {
       method: "PATCH",
       headers: new Headers({
         "Content-Type": "application/json",
       }),
-      body: JSON.stringify({ userId, reviewId }),
+      body: JSON.stringify({ reviewId, userId, content }),
     });
+    const updatedReview = await response.json();
+    return updatedReview;
   } catch (err) {
     console.error(`Error in fetch: ${err.message}`);
   }

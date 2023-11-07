@@ -1,21 +1,24 @@
 import express from "express";
 import { Review } from "../../../models/index.js";
 
-const reviewRouter = new express.Router();
+const reviewsRouter = new express.Router();
 
-reviewRouter.patch("/:id", async (req, res) => {
+reviewsRouter.patch("/:id", async (req, res) => {
+  const reviewContent = req.body.content;
+
   const userId = req.body.userId;
   const reviewId = req.body.reviewId;
 
   const review = await Review.query().findById(reviewId);
-  console.log("review", review);
   const reviewUserId = review.userId;
 
   if (userId === reviewUserId) {
     try {
-      const editRow = await Review.query().patchAndFetchById(reviewId, { content: "edit" });
-      console.log("editRow", editRow.content);
-      res.status(200).json({});
+      const updatedReview = await Review.query().patchAndFetchById(reviewId, {
+        content: reviewContent.content,
+      });
+      res.status(200).json({ updatedReview });
+      // res.status(200).json({ return all reviews including the updated one  });
     } catch (err) {
       res.status(500).json({ errors: err });
     }
@@ -24,4 +27,4 @@ reviewRouter.patch("/:id", async (req, res) => {
   }
 });
 
-export default reviewRouter;
+export default reviewsRouter;
