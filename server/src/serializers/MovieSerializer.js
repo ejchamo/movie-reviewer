@@ -11,7 +11,7 @@ class MovieSerializer {
           serializedMovie[attribute] = movie[attribute];
         }
 
-        let averageRating = await movie.getAverage();
+        const averageRating = await movie.getAverage();
         serializedMovie.averageRating = averageRating;
 
         return serializedMovie;
@@ -34,7 +34,7 @@ class MovieSerializer {
     });
     serializedMovie.reviews = serializedReviews;
 
-    let averageRating = await movie.getAverage();
+    const averageRating = await movie.getAverage();
     serializedMovie.averageRating = averageRating;
 
     return serializedMovie;

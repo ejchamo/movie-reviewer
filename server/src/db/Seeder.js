@@ -14,7 +14,7 @@ class Seeder {
     console.log("seeding movies");
     await MovieSeeder.seed();
 
-    // console.log("seeding reviews");
+    console.log("seeding reviews");
     await ReviewSeeder.seed();
 
     console.log("Done!");
