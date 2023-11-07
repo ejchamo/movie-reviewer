@@ -11,6 +11,7 @@ rootRouter.use("/api/v1/user-sessions", userSessionsRouter);
 rootRouter.use("/api/v1/users", usersRouter);
 rootRouter.use("/api/v1/movies", moviesRouter);
 rootRouter.use("/api/v1/reviews", reviewRouter);
+
 //place your server-side routes here
 
 export default rootRouter;

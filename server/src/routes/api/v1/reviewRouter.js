@@ -18,12 +18,30 @@ reviewRouter.patch("/:id", async (req, res) => {
         content: reviewContent.content,
       });
       res.status(200).json({ updatedReview });
-      // res.status(200).json({ return all reviews including the updated one  });
     } catch (err) {
       res.status(500).json({ errors: err });
     }
   } else {
     res.status(400).json({ error: "not authorized to edit" });
+  }
+});
+
+reviewRouter.delete("/:id", async (req, res) => {
+  const userId = req.user.id;
+  const reviewId = req.params.id;
+
+  const review = await Review.query().findById(reviewId);
+  const reviewUserId = review.userId;
+
+  if (userId === reviewUserId) {
+    try {
+      const deletedRows = await Review.query().deleteById(reviewId);
+      res.status(200).json({ deletedRows });
+    } catch (error) {
+      res.status(500).json({ errors: error });
+    }
+  } else {
+    res.status(401).json({ warning: "not authorized to delete review" });
   }
 });
 
