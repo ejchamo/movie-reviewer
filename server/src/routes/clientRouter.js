@@ -10,7 +10,6 @@ const clientRoutes = [
   "/movies/:id",
   "/movies/new",
   "/movies/:id/reviewForm",
-  "/movies/:id/reviews/:id/edit",
 ];
 
 const authedClientRoutes = ["/profile"];
