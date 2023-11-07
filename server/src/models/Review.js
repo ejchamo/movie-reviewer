@@ -8,9 +8,22 @@ class Review extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["content"],
+      required: ["content", "rating"],
       properties: {
         content: { type: "string" },
+        rating: {
+          anyOf: [
+            {
+              type: "integer",
+              minimum: 1,
+              maximum: 10,
+            },
+            {
+              type: "string",
+              pattern: "^(0?[1-9]$|^10)$",
+            },
+          ],
+        },
       },
     };
   }

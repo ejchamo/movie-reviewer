@@ -11,7 +11,7 @@ moviesRouter.use("/:id/reviewForm", movieReviewRouter);
 moviesRouter.get("/", async (req, res) => {
   try {
     const movies = await Movie.query();
-    const serializedMovies = MovieSerializer.getDetails(movies);
+    const serializedMovies = await MovieSerializer.getDetails(movies);
 
     res.status(200).json({ movies: serializedMovies });
   } catch (error) {

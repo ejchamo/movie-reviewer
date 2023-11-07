@@ -33,7 +33,6 @@ const MovieShow = (props) => {
               <div className="movie-detail-container cell medium-6 medium-cell-block-y">
                 <h1>{movie.title}</h1>
               </div>
-
               <div className="reviews-list-container cell medium-6 medium-cell-block-y">
                 {newReviewFormLink}
                 <ReviewList user={props.user} movie={movie} setMovie={setMovie} />

@@ -22,7 +22,7 @@ const ReviewTile = (props) => {
 
   return (
     <li className="review">
-      {props.review.content}
+      {props.review.content} - rating: {props.review.rating}
       {deleteButton}
     </li>
   );
