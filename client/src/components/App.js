@@ -40,11 +40,6 @@ const App = (props) => {
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route
           exact
-          path="/movies/:id/reviews/:id/edit"
-          render={(props) => <EditReviewForm user={currentUser} {...props} />}
-        />
-        <Route
-          exact
           path="/profile"
           render={(props) => {
             return <UserProfile userData={currentUser} {...props} />;
