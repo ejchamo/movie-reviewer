@@ -21,6 +21,7 @@ $cool-gray: #e5e5e5;
   list-style: none;
   color: $midnight-blue;
   text-align: left;
+  width: 90%;
   background-color: white;
   margin: 1rem 0;
 }
@@ -81,11 +82,7 @@ body {
 .movie-detail-container,
 .reviews-list-container {
   background-color: $cool-gray;
-  margin: 1rem;
   padding: 2rem;
-}
-
-.grid-container {
-  display: grid;
-  height: calc(100vh - 100px);
+  margin: 0.5rem;
+  height: calc(100vh - 150px);
 }
