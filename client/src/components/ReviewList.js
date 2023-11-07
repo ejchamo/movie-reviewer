@@ -14,7 +14,7 @@ const ReviewList = (props) => {
     );
   });
 
-  return <ul className="review-list">{reviewTiles}</ul>;
+  return <ul>{reviewTiles}</ul>;
 };
 
 export default ReviewList;
