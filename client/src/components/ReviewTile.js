@@ -21,7 +21,7 @@ const ReviewTile = (props) => {
   }
 
   return (
-    <li>
+    <li className="review">
       {props.review.content}
       {deleteButton}
     </li>

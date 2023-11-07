@@ -17,15 +17,17 @@ $midnight-blue: #14213d;
 $pumpkin-orange: #fca311;
 $cool-gray: #e5e5e5;
 
-
-ul li {
+.review {
   list-style: none;
-  color: $pumpkin-orange;
+  color: $midnight-blue;
+  text-align: left;
+  background-color: white;
+  margin: 1rem 0;
 }
 
 .top-bar {
   background-color: $midnight-blue;
-  .menu{
+  .menu {
     background-color: $midnight-blue;
     a {
       color: $cool-gray;
@@ -74,4 +76,16 @@ body {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
+}
+
+.movie-detail-container,
+.reviews-list-container {
+  background-color: $cool-gray;
+  margin: 1rem;
+  padding: 2rem;
+}
+
+.grid-container {
+  display: grid;
+  height: calc(100vh - 100px);
 }

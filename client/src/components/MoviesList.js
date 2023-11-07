@@ -25,7 +25,7 @@ const MoviesList = (props) => {
 
   const moviesListItems = movies.map((movieItem) => {
     return (
-      <div className="cell">
+      <div key={movieItem.id} className="cell">
         <div className="radius bordered shadow card" key={movieItem.id}>
           <div className="card-section">
             <Link className="movie-title" to={`/movies/${movieItem.id}`}>
