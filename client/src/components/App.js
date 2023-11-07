@@ -14,7 +14,6 @@ import MovieShow from "./MovieShow";
 import UserProfile from "./UserProfile";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 
-
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
   const fetchCurrentUser = async () => {
@@ -37,20 +36,19 @@ const App = (props) => {
         <Route exact path="/" component={MoviesList} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/movies/new" component={NewMovieForm} />
-        <Route exact path="/user-sessions/new" component={SignInForm} />  
-        <Route
-          exact
-          path="/profile"
-          render={(props) => {
-            return <UserProfile userData={currentUser} {...props} />;
-          }}
-        />
+        <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route
           exact
           path="/movies/:id"
           render={(props) => {
             return <MovieShow user={currentUser} {...props} />;
           }}
+        />
+        <AuthenticatedRoute
+          exact={true}
+          path="/profile"
+          component={UserProfile}
+          user={currentUser}
         />
         <AuthenticatedRoute
           exact={true}
