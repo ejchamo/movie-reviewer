@@ -7,7 +7,7 @@
  */
 exports.up = async (knex) => {
   return knex.schema.table("reviews", (table) => {
-    table.integer("rating").notNullable().unsigned();
+    table.integer("rating").notNullable().checkPositive().checkBetween([1, 10]);
   });
 };
 

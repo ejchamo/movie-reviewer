@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import MovieTile from "./MovieTile";
 
 const MoviesList = (props) => {
   const [movies, setMovies] = useState([]);
@@ -24,18 +24,7 @@ const MoviesList = (props) => {
   }, []);
 
   const moviesListItems = movies.map((movieItem) => {
-    return (
-      <div className="cell" key={movieItem.id}>
-        <div className="radius bordered shadow card" key={movieItem.id}>
-          <div className="card-section">
-            <Link className="movie-title" to={`/movies/${movieItem.id}`}>
-              {movieItem.title}
-            </Link>
-            <div>Rating: {movieItem.averageRating}</div>
-          </div>
-        </div>
-      </div>
-    );
+    return <MovieTile key={movieItem.id} movieItem={movieItem} />;
   });
 
   return (

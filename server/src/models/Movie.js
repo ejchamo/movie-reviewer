@@ -29,6 +29,11 @@ class Movie extends Model {
       },
     };
   }
+  async getAverage() {
+    let averageRating = await this.$relatedQuery("reviews").avg("rating");
+    averageRating = parseFloat(averageRating[0].avg).toFixed(1);
+    return averageRating;
+  }
 }
 
 module.exports = Movie;

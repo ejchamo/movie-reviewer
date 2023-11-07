@@ -11,8 +11,8 @@ class MovieSerializer {
           serializedMovie[attribute] = movie[attribute];
         }
 
-        let averageRating = await movie.$relatedQuery("reviews").avg("rating");
-        serializedMovie.averageRating = parseFloat(averageRating[0].avg).toFixed(1);
+        let averageRating = await movie.getAverage();
+        serializedMovie.averageRating = averageRating;
 
         return serializedMovie;
       })
@@ -34,8 +34,8 @@ class MovieSerializer {
     });
     serializedMovie.reviews = serializedReviews;
 
-    let averageRating = await movie.$relatedQuery("reviews").avg("rating");
-    serializedMovie.averageRating = parseFloat(averageRating[0].avg).toFixed(1);
+    let averageRating = await movie.getAverage();
+    serializedMovie.averageRating = averageRating;
 
     return serializedMovie;
   }

@@ -86,18 +86,16 @@ const NewReviewForm = (props) => {
       </label>
 
       <label>
-        Enter your rating:
+        Enter your rating (1-10):
         <div>
-          <select name="rating" onChange={handleInputChange} className="ratings">
-            <option value="" />
-            {[...Array(10)]
-              .map((_, i) => i + 1)
-              .map((i) => (
-                <option key={i} value={i}>
-                  {i}
-                </option>
-              ))}
-          </select>
+          <input
+            type="number"
+            name="rating"
+            onChange={handleInputChange}
+            className="ratings"
+            min={1}
+            max={10}
+          ></input>
         </div>
       </label>
 

@@ -11,7 +11,7 @@ class Review extends Model {
       required: ["content"],
       properties: {
         content: { type: "string" },
-        rating: { type: "integer" },
+        rating: { type: ["string", "integer"], minimum: 1, maximum: 10 },
       },
     };
   }

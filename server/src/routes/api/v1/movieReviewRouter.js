@@ -18,7 +18,7 @@ movieReviewRouter.post("/", async (req, res) => {
       movieId,
       userId,
       content,
-      rating: parseInt(rating),
+      rating,
     });
     return res.status(201).json({ newReview });
   } catch (error) {
