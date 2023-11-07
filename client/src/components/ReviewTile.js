@@ -18,7 +18,6 @@ const ReviewTile = (props) => {
         user={props.user}
         movie={props.movie}
         setIsClicked={setIsClicked}
-        reviews={props.reviews}
         setMovie={props.setMovie}
       />
     );

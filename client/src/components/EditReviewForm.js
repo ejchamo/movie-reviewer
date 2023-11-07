@@ -25,7 +25,7 @@ const EditReviewForm = (props) => {
     // call setMovie (to change the list of reviews) with the updated review
     // going to need to use toSpliced()
 
-    const reviewList = props.reviews;
+    const reviewList = props.movie.reviews;
     const index = reviewList.findIndex((review) => review.id === props.review.id);
 
     const splicedReview = reviewList.toSpliced(index, 1, reviewObject);
