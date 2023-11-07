@@ -27,6 +27,7 @@ const MovieShow = (props) => {
   return (
     <>
       <h1>{movie.title}</h1>
+      <div>Average Rating: {movie.averageRating}</div>
       {newReviewFormLink}
       <ReviewList user={props.user} movie={movie} setMovie={setMovie} />
     </>

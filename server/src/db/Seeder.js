@@ -4,7 +4,6 @@ import MovieSeeder from "./seeders/MovieSeeder.js";
 import UserSeeder from "./seeders/UserSeeder.js";
 import ReviewSeeder from "./seeders/ReviewSeeder.js";
 
-
 class Seeder {
   static async seed() {
     // include individual seed commands here
@@ -15,10 +14,7 @@ class Seeder {
     console.log("seeding movies");
     await MovieSeeder.seed();
 
-    console.log("seeding users");
-    await UserSeeder.seed();
-
-    // console.log("seeding reviews");
+    console.log("seeding reviews");
     await ReviewSeeder.seed();
 
     console.log("Done!");
