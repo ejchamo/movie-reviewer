@@ -24,25 +24,26 @@ const ReviewTile = (props) => {
   }
 
   let editButton;
-  if (props.user && props.review.userId === props.user.id) {
-    editButton = <input type="submit" onClick={editButtonOnClick} value="Edit" />;
-    
-  const deleteOnClick = async () => {
-    const response = await deleteReview(props.review.id);
-
-    if (response.status === 200) {
-      const newReviews = props.movie.reviews.filter((review) => {
-        return review.id !== props.review.id;
-      });
-
-      const newMovie = { ...props.movie, reviews: newReviews };
-      props.setMovie(newMovie);
-    }
-  };
-
   let deleteButton;
   if (props.user && props.review.userId === props.user.id) {
-    deleteButton = <input type="submit" onClick={deleteOnClick} value="Delete" />;  
+    editButton = <input type="submit" onClick={editButtonOnClick} value="Edit" />;
+
+    const deleteOnClick = async () => {
+      const response = await deleteReview(props.review.id);
+
+      if (response.status === 200) {
+        const newReviews = props.movie.reviews.filter((review) => {
+          return review.id !== props.review.id;
+        });
+
+        const newMovie = { ...props.movie, reviews: newReviews };
+        props.setMovie(newMovie);
+      }
+    };
+
+    if (props.user && props.review.userId === props.user.id) {
+      deleteButton = <input type="submit" onClick={deleteOnClick} value="Delete" />;
+    }
   }
 
   return (

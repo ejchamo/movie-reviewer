@@ -6,15 +6,15 @@ const reviewRouter = new express.Router();
 reviewRouter.patch("/:id", async (req, res) => {
   const reviewContent = req.body.content;
 
-  const userId = req.body.userId;
-  const reviewId = req.body.reviewId;
+  const user = req.user;
+  const reviewId = req.params.id;
 
   const review = await Review.query().findById(reviewId);
   const reviewUserId = review.userId;
 
-  if (userId === reviewUserId) {
+  if (user.id === reviewUserId) {
     try {
-      const updatedReview = await Review.query().patchAndFetchById(reviewId, {
+      const updatedReview = await review.$query().patchAndFetch({
         content: reviewContent.content,
       });
       res.status(200).json({ updatedReview });
