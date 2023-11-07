@@ -1,9 +1,9 @@
 import express from "express";
 import { Review } from "../../../models/index.js";
 
-const reviewsRouter = new express.Router();
+const reviewRouter = new express.Router();
 
-reviewsRouter.patch("/:id", async (req, res) => {
+reviewRouter.patch("/:id", async (req, res) => {
   const reviewContent = req.body.content;
 
   const userId = req.body.userId;
@@ -27,4 +27,4 @@ reviewsRouter.patch("/:id", async (req, res) => {
   }
 });
 
-export default reviewsRouter;
+export default reviewRouter;
