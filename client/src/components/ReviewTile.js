@@ -38,17 +38,23 @@ const ReviewTile = (props) => {
         props.setMovie(newMovie);
       }
     };
-    editButton = <input type="submit" onClick={editButtonOnClick} value="Edit" />;
-    deleteButton = <input type="submit" onClick={deleteOnClick} value="Delete" />;
+    editButton = (
+      <input class="edit-del-button" type="submit" onClick={editButtonOnClick} value="Edit" />
+    );
+    deleteButton = (
+      <input class="edit-del-button" type="submit" onClick={deleteOnClick} value="Delete" />
+    );
   }
 
   return (
-    <li className="review">
-      {editForm}
-      {props.review.content} - rating: {props.review.rating}
+    <>
+      <li className="review">
+        {editForm}
+        {props.review.content} - rating: {props.review.rating}
+      </li>
       {editButton}
       {deleteButton}
-    </li>
+    </>
   );
 };
 
