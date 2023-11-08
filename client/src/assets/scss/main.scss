@@ -102,7 +102,6 @@ body {
   height: calc(100vh - 150px);
 }
 
-
 .movie-title {
   color: $cool-gray;
   background-color: $midnight-blue;
@@ -116,6 +115,7 @@ body {
 .movie-rating {
   color: $pumpkin-orange;
   padding: 0.5rem 0;
+}
 
 #new-movie-button a {
   background-color: $pumpkin-orange;
