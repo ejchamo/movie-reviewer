@@ -99,7 +99,7 @@ body {
   background-color: $cool-gray;
   padding: 2rem;
   margin: 0.5rem;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 100px);
 }
 
 .movie-title {
@@ -115,6 +115,7 @@ body {
 .movie-rating {
   color: $pumpkin-orange;
   padding: 0.5rem 0;
+  backdrop-filter: blur(10px) grayscale(30%);
 }
 
 #new-movie-button a {
