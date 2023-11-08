@@ -49,7 +49,9 @@ const UserProfile = (props) => {
             <section>
               <div {...getRootProps()}>
                 <input {...getInputProps()} />
-                <p>Upload Your Meme - drag 'n' drop or click to upload</p>
+                <div className="drag-n-drop">
+                  <p>Upload A Picture - drag 'n' drop or click to upload</p>
+                </div>
               </div>
             </section>
           )}
