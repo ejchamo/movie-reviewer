@@ -22,8 +22,14 @@ $cool-gray: #e5e5e5;
   color: $midnight-blue;
   text-align: left;
   width: 90%;
+  padding: 1rem;
+  background-color: lightgray;
+  margin-top: 1rem;
+  border-style: solid;
+}
+
+.edit-del-button {
   background-color: white;
-  margin: 1rem 0;
 }
 
 .top-bar {
