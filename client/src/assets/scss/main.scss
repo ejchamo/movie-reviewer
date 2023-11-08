@@ -17,7 +17,6 @@ $midnight-blue: #14213d;
 $pumpkin-orange: #fca311;
 $cool-gray: #e5e5e5;
 
-
 .review {
   list-style: none;
   color: $midnight-blue;
@@ -50,7 +49,8 @@ $cool-gray: #e5e5e5;
 
 .card {
   height: 200px;
-  width: 150px;
+  width: 140px;
+  background-size: contain;
 }
 
 body {
@@ -58,9 +58,11 @@ body {
 }
 
 .card-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 200px;
-  width: 150px;
-  background-size: contain;
+  padding: 0;
 }
 
 .button {
@@ -86,4 +88,19 @@ body {
   padding: 2rem;
   margin: 0.5rem;
   height: calc(100vh - 150px);
+}
+
+.movie-title {
+  color: $cool-gray;
+  background-color: $midnight-blue;
+  padding: 0.5rem 0;
+}
+
+.movie-title:hover {
+  color: $pumpkin-orange;
+}
+
+.movie-rating {
+  color: $pumpkin-orange;
+  padding: 0.5rem 0;
 }

@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 const MovieTile = ({ movieItem }) => {
   return (
     <div className="cell">
-      <div className="radius bordered shadow card" key={movieItem.id}>
-        <div className="card-section">
-          <Link className="movie-title" to={`/movies/${movieItem.id}`}>
-            {movieItem.title}
-          </Link>
-          <div>Rating: {movieItem.averageRating}</div>
-        </div>
+      <div
+        className="radius bordered shadow card"
+        key={movieItem.id}
+        style={{ backgroundImage: `url(${movieItem.imageUrl})` }}
+      >
+        <Link to={`/movies/${movieItem.id}`}>
+          <div className="card-section">
+            <div className="movie-title">{movieItem.title}</div>
+            <div className="movie-rating">Rating: {movieItem.averageRating}</div>
+          </div>
+        </Link>
       </div>
     </div>
   );
