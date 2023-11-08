@@ -61,7 +61,8 @@ $cool-gray: #e5e5e5;
 
 .card {
   height: 200px;
-  width: 150px;
+  width: 140px;
+  background-size: contain;
 }
 
 body {
@@ -69,9 +70,11 @@ body {
 }
 
 .card-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 200px;
-  width: 150px;
-  background-size: contain;
+  padding: 0;
 }
 
 .button {
@@ -96,7 +99,23 @@ body {
   background-color: $cool-gray;
   padding: 2rem;
   margin: 0.5rem;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 100px);
+}
+
+.movie-title {
+  color: $cool-gray;
+  background-color: $midnight-blue;
+  padding: 0.5rem 0;
+}
+
+.movie-title:hover {
+  color: $pumpkin-orange;
+}
+
+.movie-rating {
+  color: $pumpkin-orange;
+  padding: 0.5rem 0;
+  backdrop-filter: blur(10px) grayscale(30%);
 }
 
 #new-movie-button a {
@@ -117,4 +136,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.movie-poster {
+  height: 300px;
+}
+
+.movie-show-rating {
+  margin: 1rem;
 }
