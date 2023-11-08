@@ -2,9 +2,7 @@ import React from "react";
 import ReviewTile from "./ReviewTile";
 
 const ReviewList = (props) => {
-  console.log(props);
   const reviewTiles = props.movie.reviews.map((review) => {
-    console.log(review);
     return (
       <ReviewTile
         key={review.id}
