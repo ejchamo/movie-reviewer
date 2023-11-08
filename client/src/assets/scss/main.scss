@@ -28,22 +28,34 @@ $cool-gray: #e5e5e5;
 
 .top-bar {
   background-color: $midnight-blue;
+  padding: 0.7rem 1rem;
+  .top-bar-left {
+    display: flex;
+    flex-direction: row;
+  }
   .menu {
     background-color: $midnight-blue;
     a {
       color: $cool-gray;
+      margin: 0 0.3rem;
+    }
+    a:hover {
+      color: $pumpkin-orange;
     }
     .button {
       background-color: $pumpkin-orange;
       color: $midnight-blue;
+      margin-right: 0.3rem;
     }
     .button:hover {
       background-color: #fcb33d;
       color: $midnight-blue;
     }
   }
-  .menu-text {
+  .menu-item {
     color: $pumpkin-orange;
+    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -90,6 +102,7 @@ body {
   height: calc(100vh - 150px);
 }
 
+
 .movie-title {
   color: $cool-gray;
   background-color: $midnight-blue;
@@ -103,4 +116,23 @@ body {
 .movie-rating {
   color: $pumpkin-orange;
   padding: 0.5rem 0;
+
+#new-movie-button a {
+  background-color: $pumpkin-orange;
+  color: $midnight-blue;
+}
+
+#new-movie-button a:hover {
+  background-color: #fcb33d;
+}
+
+#icon {
+  width: 25px;
+  height: auto;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
