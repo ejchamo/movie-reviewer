@@ -22,7 +22,7 @@ class MovieSerializer {
   }
 
   static async getSummary(movie) {
-    const allowedAttributes = ["id", "title"];
+    const allowedAttributes = ["id", "title", "imageUrl"];
     const serializedMovie = {};
     for (const attribute of allowedAttributes) {
       serializedMovie[attribute] = movie[attribute];

@@ -5,6 +5,8 @@ class MovieSeeder {
     const moviesData = [
       {
         title: "Dune 2",
+        imageUrl:
+          "https://amc-theatres-res.cloudinary.com/v1683055846/amc-cdn/production/2/movies/68100/68123/PosterDynamic/151984.jpg",
       },
       {
         title: "Five Nights at Freddy's",

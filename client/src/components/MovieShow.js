@@ -17,6 +17,8 @@ const MovieShow = (props) => {
     });
   }, []);
 
+  console.log(movie);
+
   let newReviewFormLink;
   if (props.user) {
     newReviewFormLink = (
@@ -32,6 +34,7 @@ const MovieShow = (props) => {
             <div className="grid-x grid-padding-x">
               <div className="movie-detail-container cell medium-6 medium-cell-block-y">
                 <h1>{movie.title}</h1>
+                <img src={`${movie.imageUrl}`} />
               </div>
               <div className="reviews-list-container cell medium-6 medium-cell-block-y">
                 {newReviewFormLink}
