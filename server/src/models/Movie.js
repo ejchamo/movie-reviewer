@@ -16,7 +16,7 @@ class Movie extends Model {
   }
 
   static get relationMappings() {
-    const { User, Review } = require("./index.js");
+    const { Review } = require("./index.js");
 
     return {
       reviews: {
@@ -28,6 +28,11 @@ class Movie extends Model {
         },
       },
     };
+  }
+  async getAverage() {
+    const averageRating = await this.$relatedQuery("reviews").avg("rating");
+    const floatAverage = parseFloat(averageRating[0].avg).toFixed(1);
+    return floatAverage;
   }
 }
 

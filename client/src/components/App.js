@@ -13,6 +13,7 @@ import NewMovieForm from "./NewMovieForm";
 import MovieShow from "./MovieShow";
 import UserProfile from "./UserProfile";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
+import EditReviewForm from "./EditReviewForm";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);

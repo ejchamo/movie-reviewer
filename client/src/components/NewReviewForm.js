@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import ErrorList from "./layout/ErrorList";
 import translateServerErrors from "../services/translateServerErrors";
-import getMovie from "../apiClient/getMovie";
+import getMovie from "../services/getMovie";
 
 const NewReviewForm = (props) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const [errors, setErrors] = useState([]);
   const [newReview, setNewReview] = useState({
     content: "",
+    rating: "",
   });
   const [movie, setMovie] = useState({
     title: "",
@@ -32,7 +33,7 @@ const NewReviewForm = (props) => {
         headers: new Headers({
           "Content-Type": "application/json",
         }),
-        body: JSON.stringify({ ...newReview, userId: user.id }),
+        body: JSON.stringify({ ...newReview }),
       });
       if (!response.ok) {
         if (response.status === 422) {
@@ -75,7 +76,27 @@ const NewReviewForm = (props) => {
       <h5>{user.email}</h5>
       <label>
         Enter your review:
-        <input type="text" name="content" onChange={handleInputChange} value={newReview.content} />
+        <input
+          className="review-content"
+          type="text"
+          name="content"
+          onChange={handleInputChange}
+          value={newReview.content}
+        />
+      </label>
+
+      <label>
+        Enter your rating (1-10):
+        <div>
+          <input
+            type="number"
+            name="rating"
+            onChange={handleInputChange}
+            className="ratings"
+            min={1}
+            max={10}
+          ></input>
+        </div>
       </label>
 
       <input className="button" type="submit" value="Submit" />

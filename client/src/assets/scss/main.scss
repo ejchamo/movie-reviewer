@@ -13,6 +13,77 @@
   tab-size: 4;
 }
 
+$midnight-blue: #14213d;
+$pumpkin-orange: #fca311;
+$cool-gray: #e5e5e5;
+
+.review {
+  list-style: none;
+  color: $midnight-blue;
+  text-align: left;
+  width: 90%;
+  background-color: white;
+  margin: 1rem 0;
+}
+
+.top-bar {
+  background-color: $midnight-blue;
+  padding: 0.7rem 1rem;
+  .top-bar-left {
+    display: flex;
+    flex-direction: row;
+  }
+  .menu {
+    background-color: $midnight-blue;
+    a {
+      color: $cool-gray;
+      margin: 0 0.3rem;
+    }
+    a:hover {
+      color: $pumpkin-orange;
+    }
+    .button {
+      background-color: $pumpkin-orange;
+      color: $midnight-blue;
+      margin-right: 0.3rem;
+    }
+    .button:hover {
+      background-color: #fcb33d;
+      color: $midnight-blue;
+    }
+  }
+  .menu-item {
+    color: $pumpkin-orange;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.card {
+  height: 200px;
+  width: 150px;
+}
+
+body {
+  text-align: center;
+}
+
+.card-section {
+  height: 200px;
+  width: 150px;
+  background-size: contain;
+}
+
+.button {
+  background-color: $pumpkin-orange;
+  color: $midnight-blue;
+}
+
+.movie-title-input {
+  width: 50%;
+  margin: 15px auto;
+}
+
 .profile-pic {
   background-color: grey;
   width: 10rem;
@@ -27,4 +98,31 @@
   border-radius: 5%;
   text-align: center;
   box-shadow: 2.5px 1px 1px grey;
+}
+.movie-detail-container,
+.reviews-list-container {
+  background-color: $cool-gray;
+  padding: 2rem;
+  margin: 0.5rem;
+  height: calc(100vh - 150px);
+}
+
+#new-movie-button a {
+  background-color: $pumpkin-orange;
+  color: $midnight-blue;
+}
+
+#new-movie-button a:hover {
+  background-color: #fcb33d;
+}
+
+#icon {
+  width: 25px;
+  height: auto;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
