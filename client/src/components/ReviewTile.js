@@ -43,7 +43,7 @@ const ReviewTile = (props) => {
   }
 
   return (
-    <li>
+    <li className="review">
       {editForm}
       {props.review.content} - rating: {props.review.rating}
       {editButton}
