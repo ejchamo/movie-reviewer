@@ -40,17 +40,16 @@ const App = (props) => {
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route
           exact
-          path="/profile"
-          render={(props) => {
-            return <UserProfile userData={currentUser} {...props} />;
-          }}
-        />
-        <Route
-          exact
           path="/movies/:id"
           render={(props) => {
             return <MovieShow user={currentUser} {...props} />;
           }}
+        />
+        <AuthenticatedRoute
+          exact={true}
+          path="/profile"
+          component={UserProfile}
+          user={currentUser}
         />
         <AuthenticatedRoute
           exact={true}

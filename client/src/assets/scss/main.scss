@@ -94,6 +94,16 @@ body {
   border-radius: 50%;
 }
 
+.drag-n-drop {
+  background-color: lightgray;
+  width: 10rem;
+  height: 6rem;
+  border-radius: 5%;
+  text-align: center;
+  box-shadow: 2.5px 1px 1px grey;
+  margin: auto;
+}
+
 .movie-detail-container,
 .reviews-list-container {
   background-color: $cool-gray;
