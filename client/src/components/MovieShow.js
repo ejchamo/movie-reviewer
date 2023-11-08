@@ -34,7 +34,8 @@ const MovieShow = (props) => {
             <div className="grid-x grid-padding-x">
               <div className="movie-detail-container cell medium-6 medium-cell-block-y">
                 <h1>{movie.title}</h1>
-                <img src={`${movie.imageUrl}`} />
+                <img className="movie-poster" src={`${movie.imageUrl}`} />
+                <div className="movie-show-rating">Rating: {movie.averageRating}</div>
               </div>
               <div className="reviews-list-container cell medium-6 medium-cell-block-y">
                 {newReviewFormLink}

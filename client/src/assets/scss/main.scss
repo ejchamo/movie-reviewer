@@ -99,7 +99,7 @@ body {
   background-color: $cool-gray;
   padding: 2rem;
   margin: 0.5rem;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 80px);
 }
 
 .movie-title {
@@ -135,4 +135,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.movie-poster {
+  height: 300px;
+}
+
+.movie-show-rating {
+  margin: 1rem;
 }
