@@ -12,14 +12,10 @@ const EditReviewForm = (props) => {
 
   const editOnClick = async (event) => {
     event.preventDefault();
-    const updateReview = await editReview(props.review.id, content);
-    const reviewObject = {
-      id: updateReview.updatedReview.id,
-      content: updateReview.updatedReview.content,
-    };
+    const updatedReview = await editReview(props.review.id, content);
     const reviewList = props.movie.reviews;
     const index = reviewList.findIndex((review) => review.id === props.review.id);
-    const splicedReview = reviewList.toSpliced(index, 1, reviewObject);
+    const splicedReview = reviewList.toSpliced(index, 1, updatedReview);
     props.setMovie({ title: props.movie.title, reviews: splicedReview });
     props.setIsClicked(false);
   };

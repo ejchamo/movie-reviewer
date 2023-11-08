@@ -7,8 +7,8 @@ const editReview = async (reviewId, content) => {
       }),
       body: JSON.stringify({ content }),
     });
-    const updatedReview = await response.json();
-    return updatedReview;
+    const body = await response.json();
+    return body.updatedReview;
   } catch (err) {
     console.error(`Error in fetch: ${err.message}`);
   }

@@ -26,8 +26,6 @@ const ReviewTile = (props) => {
   let editButton;
   let deleteButton;
   if (props.user && props.review.userId === props.user.id) {
-    editButton = <input type="submit" onClick={editButtonOnClick} value="Edit" />;
-
     const deleteOnClick = async () => {
       const response = await deleteReview(props.review.id);
 
@@ -40,10 +38,8 @@ const ReviewTile = (props) => {
         props.setMovie(newMovie);
       }
     };
-
-    if (props.user && props.review.userId === props.user.id) {
-      deleteButton = <input type="submit" onClick={deleteOnClick} value="Delete" />;
-    }
+    editButton = <input type="submit" onClick={editButtonOnClick} value="Edit" />;
+    deleteButton = <input type="submit" onClick={deleteOnClick} value="Delete" />;
   }
 
   return (
