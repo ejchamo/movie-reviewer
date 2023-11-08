@@ -17,19 +17,27 @@ $midnight-blue: #14213d;
 $pumpkin-orange: #fca311;
 $cool-gray: #e5e5e5;
 
+body {
+  background-color: $cool-gray;
+}
+
 .review {
   list-style: none;
   color: $midnight-blue;
   text-align: left;
   width: 90%;
   padding: 1rem;
-  background-color: lightgray;
+  background-color: $cool-gray;
   margin-top: 1rem;
   border-style: solid;
+  border-color: lightgray;
 }
 
 .edit-del-button {
-  background-color: white;
+  background-color: $pumpkin-orange;
+  color: $midnight-blue;
+  margin: 0.2rem;
+  display: flexbox;
 }
 
 .top-bar {
@@ -112,10 +120,11 @@ body {
 
 .movie-detail-container,
 .reviews-list-container {
-  background-color: $cool-gray;
+  background-color: $midnight-blue;
   padding: 2rem;
   margin: 0.5rem;
   height: calc(100vh - 100px);
+  box-shadow: 2.5px 1px 1px grey;
 }
 
 .movie-title {
