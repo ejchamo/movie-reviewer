@@ -17,8 +17,6 @@ const MovieShow = (props) => {
     });
   }, []);
 
-  console.log(movie);
-
   let newReviewFormLink;
   if (props.user) {
     newReviewFormLink = (
