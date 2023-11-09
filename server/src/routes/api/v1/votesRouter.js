@@ -28,27 +28,4 @@ votesRouter.post("/:id", async (req, res) => {
   }
 });
 
-// votesRouter.patch("/:id", async (req, res) => {
-//   const reviewContent = req.body.content;
-
-//   const user = req.user;
-//   const reviewId = req.params.id;
-
-//   const review = await Review.query().findById(reviewId);
-//   const reviewUserId = review.userId;
-
-//   if (user.id === reviewUserId) {
-//     try {
-//       const updatedReview = await review.$query().patchAndFetch({
-//         content: reviewContent.content,
-//       });
-//       res.status(200).json({ updatedReview });
-//     } catch (err) {
-//       res.status(500).json({ errors: err });
-//     }
-//   } else {
-//     res.status(400).json({ error: "not authorized to edit" });
-//   }
-// });
-
 export default votesRouter;
