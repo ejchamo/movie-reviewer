@@ -13,7 +13,7 @@ votesRouter.post("/:id", async (req, res) => {
 
   const existingVote = await Vote.query().findOne({ reviewId, userId });
 
-  if (existingVote) {
+  if (existingVote && existingVote.vote !== parseInt(vote)) {
     try {
       const newVote = await existingVote.$query().patchAndFetch({ vote });
       const serializedVote = VoteSerializer.cleanVote(newVote);
@@ -21,6 +21,8 @@ votesRouter.post("/:id", async (req, res) => {
     } catch (err) {
       res.status(500).json({ errors: err });
     }
+  } else if (existingVote && existingVote.vote === parseInt(vote)) {
+    res.send("no vote change");
   } else {
     try {
       const newVote = await Vote.query().insertAndFetch({
