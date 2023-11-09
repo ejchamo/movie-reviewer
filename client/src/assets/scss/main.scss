@@ -201,6 +201,10 @@ body {
   color: whitesmoke;
 }
 
+.movie-show-rating {
+  font-weight: bold;
+}
+
 .add-review-button {
   background-color: $pumpkin-orange;
   color: $midnight-blue;
@@ -211,4 +215,18 @@ body {
 
 .add-review-button:hover {
   background-color: #fcb33d;
+}
+
+.vote-count {
+  color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+}
+.vote-count-num {
+  margin-left: 0.3rem;
+  font-weight: bold;
+}
+
+.thumb-buttons {
+  margin: 0.2rem;
 }
