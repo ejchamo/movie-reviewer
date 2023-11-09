@@ -58,6 +58,13 @@ class Review extends Model {
       },
     };
   }
+
+  async getVoteCount() {
+    const voteCount = await this.$relatedQuery("votes").sum("vote");
+    console.log("votecount------------", voteCount);
+    const intCount = parseInt(voteCount[0].sum);
+    return intCount;
+  }
 }
 
 module.exports = Review;
