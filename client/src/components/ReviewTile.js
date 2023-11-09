@@ -51,10 +51,12 @@ const ReviewTile = (props) => {
       <li className="review">
         {editForm}
         {props.review.content}
-        <div>- rating: {props.review.rating}</div>
+        <div className="review-rating-score">Rating: {props.review.rating}</div>
       </li>
-      {editButton}
-      {deleteButton}
+      <div className="review-buttons-container">
+        <div className="edit-del-button">{editButton}</div>
+        <div className="edit-del-button">{deleteButton}</div>
+      </div>
     </>
   );
 };

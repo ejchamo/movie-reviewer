@@ -20,7 +20,9 @@ const MovieShow = (props) => {
   let newReviewFormLink;
   if (props.user) {
     newReviewFormLink = (
-      <Link to={`/movies/${props.match.params.id}/reviewForm`}>Add a new review here!</Link>
+      <Link className="add-review-button" to={`/movies/${props.match.params.id}/reviewForm`}>
+        Add a new review here!
+      </Link>
     );
   }
 
