@@ -8,8 +8,10 @@ class ReviewSerializer {
     }
 
     const voteCount = await review.getVoteCount();
-
     serializedReview.voteCount = voteCount;
+
+    const username = await review.getUsername();
+    serializedReview.username = username;
 
     return serializedReview;
   }

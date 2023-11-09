@@ -64,6 +64,11 @@ class Review extends Model {
     const intCount = parseInt(voteCount[0].sum);
     return intCount;
   }
+
+  async getUsername() {
+    const username = await this.$relatedQuery("user");
+    return username.username;
+  }
 }
 
 module.exports = Review;
