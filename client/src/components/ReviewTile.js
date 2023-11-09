@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EditReviewForm from "./EditReviewForm";
 import deleteReview from "../services/DeleteReview";
+import VotingButtons from "./VotingButtons";
 
 const ReviewTile = (props) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -53,7 +54,9 @@ const ReviewTile = (props) => {
         {props.review.content}
         <div className="review-rating-score">Rating: {props.review.rating}</div>
       </li>
+
       <div className="review-buttons-container">
+        <VotingButtons review={props.review} />
         <div className="edit-del-button">{editButton}</div>
         <div className="edit-del-button">{deleteButton}</div>
       </div>

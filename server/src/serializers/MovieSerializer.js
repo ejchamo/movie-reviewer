@@ -29,9 +29,12 @@ class MovieSerializer {
     }
 
     let reviews = await movie.$relatedQuery("reviews");
-    const serializedReviews = reviews.map((review) => {
-      return ReviewSerializer.cleanReview(review);
-    });
+
+    const serializedReviews = await Promise.all(
+      reviews.map(async (review) => {
+        return await ReviewSerializer.cleanReview(review);
+      })
+    );
     serializedMovie.reviews = serializedReviews;
 
     const averageRating = await movie.getAverage();

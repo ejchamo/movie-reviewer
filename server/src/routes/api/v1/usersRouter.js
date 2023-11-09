@@ -24,9 +24,8 @@ usersRouter.post("/", async (req, res) => {
 usersRouter.patch("/:id", uploadImage.single("image"), async (req, res) => {
   try {
     const user = req.user;
-
-    const body = await user.$query().patchAndFetch({ image: req.file.location });
-
+    const newImage = req.file.location;
+    const body = await user.$query().patchAndFetch({ image: newImage });
     return res.status(201).json({ body });
   } catch (error) {
     if (error instanceof ValidationError) {
