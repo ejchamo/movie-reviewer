@@ -25,8 +25,8 @@ const VotingButtons = (props) => {
   return (
     <div className="vote-count">
       <FontAwesomeIcon className="thumb-buttons" onClick={upVoteClick} icon={faThumbsUp} />
-      <FontAwesomeIcon className="thumb-buttons" onClick={downVoteClick} icon={faThumbsDown} />
       <div className="vote-count-num">{voteCount}</div>
+      <FontAwesomeIcon className="thumb-buttons" onClick={downVoteClick} icon={faThumbsDown} />
     </div>
   );
 };

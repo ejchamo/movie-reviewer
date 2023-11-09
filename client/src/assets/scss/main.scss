@@ -230,3 +230,14 @@ body {
 .thumb-buttons {
   margin: 0.2rem;
 }
+
+.review-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.review-username {
+  font-weight: bolder;
+}
