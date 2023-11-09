@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import EditReviewForm from "./EditReviewForm";
 import deleteReview from "../services/DeleteReview";
 import VotingButtons from "./VotingButtons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ReviewTile = (props) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -48,19 +50,25 @@ const ReviewTile = (props) => {
   }
 
   return (
-    <div className="review-container">
-      <li className="review">
-        <h5>{props.review.username}</h5>
-        {editForm}
-        {props.review.content}
-        <div className="review-rating-score">Rating: {props.review.rating}</div>
-      </li>
-      <div className="review-buttons-container">
-        <div className="edit-del-button">{editButton}</div>
-        <div className="edit-del-button">{deleteButton}</div>
-        <VotingButtons review={props.review} />
+    <>
+      <div className="review-container">
+        <li className="review">
+          <h5 className="review-username">{props.review.username}</h5>
+          {editForm}
+          <p>{props.review.content}</p>
+          <div className="review-rating">
+            Rating: {props.review.rating} <FontAwesomeIcon icon={faStar} />
+          </div>
+        </li>
+        <div className="review-btn-container">
+          <div className="review-buttons-container">
+            <div className="edit-del-button">{editButton}</div>
+            <div className="edit-del-button">{deleteButton}</div>
+          </div>
+          <VotingButtons review={props.review} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
