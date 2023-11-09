@@ -50,6 +50,7 @@ const ReviewTile = (props) => {
   return (
     <div className="review-container">
       <li className="review">
+        <h5>{props.review.username}</h5>
         {editForm}
         {props.review.content}
         <div className="review-rating-score">Rating: {props.review.rating}</div>
