@@ -35,7 +35,11 @@ const MovieShow = (props) => {
               <div className="movie-detail-container cell medium-6 medium-cell-block-y">
                 <h1 className="movie-showpage-title">{movie.title}</h1>
                 <img className="movie-poster" src={`${movie.imageUrl}`} />
-                <div className="movie-show-rating">Rating: {movie.averageRating}</div>
+                {movie.averageRating == "NaN" ? (
+                  <div className="movie-show-rating">No rating yet.</div>
+                ) : (
+                  <div className="movie-show-rating">Rating: {movie.averageRating}</div>
+                )}
               </div>
               <div className="reviews-list-container cell medium-6 medium-cell-block-y">
                 {newReviewFormLink}

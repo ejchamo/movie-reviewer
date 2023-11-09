@@ -12,7 +12,11 @@ const MovieTile = ({ movieItem }) => {
         <Link to={`/movies/${movieItem.id}`}>
           <div className="card-section">
             <div className="movie-title">{movieItem.title}</div>
-            <div className="movie-rating">Rating: {movieItem.averageRating}</div>
+            {movieItem.averageRating == "NaN" ? (
+              ""
+            ) : (
+              <div className="movie-rating">Rating: {movieItem.averageRating}</div>
+            )}
           </div>
         </Link>
       </div>
