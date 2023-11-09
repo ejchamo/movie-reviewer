@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EditReviewForm from "./EditReviewForm";
 import deleteReview from "../services/DeleteReview";
+import VotingButtons from "./VotingButtons";
 
 const ReviewTile = (props) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -52,6 +53,7 @@ const ReviewTile = (props) => {
         {editForm}
         {props.review.content} - rating: {props.review.rating}
       </li>
+      <VotingButtons review={props.review} />
       {editButton}
       {deleteButton}
     </>

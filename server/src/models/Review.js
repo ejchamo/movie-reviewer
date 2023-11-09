@@ -29,7 +29,7 @@ class Review extends Model {
   }
 
   static get relationMappings() {
-    const { Movie, User } = require("./index.js");
+    const { Movie, User, Vote } = require("./index.js");
 
     return {
       movie: {
@@ -48,7 +48,21 @@ class Review extends Model {
           to: "users.id",
         },
       },
+      votes: {
+        relation: Model.HasManyRelation,
+        modelClass: Vote,
+        join: {
+          from: "reviews.id",
+          to: "votes.reviewId",
+        },
+      },
     };
+  }
+
+  async getVoteCount() {
+    const voteCount = await this.$relatedQuery("votes").sum("vote");
+    const intCount = parseInt(voteCount[0].sum);
+    return intCount;
   }
 }
 
