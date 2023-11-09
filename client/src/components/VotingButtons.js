@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import castVote from "../services/castVote";
 
 const VotingButtons = (props) => {
-  const [voteCount, setVoteCount] = useState(props.review.voteCount || 0);
+  const loadedVotes = props.review.voteCount || 0;
+  const [voteCount, setVoteCount] = useState(loadedVotes);
 
   const voteClick = async (event) => {
     event.preventDefault();
     castVote(event.currentTarget.value, props.review.id).then((newVote) => {
-      setVoteCount(voteCount + newVote.vote);
+      setVoteCount(loadedVotes + newVote.vote);
     });
   };
 
