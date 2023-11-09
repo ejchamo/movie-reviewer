@@ -7,7 +7,6 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ReviewTile = (props) => {
   const [isClicked, setIsClicked] = useState(false);
-
   let editForm;
 
   const editButtonOnClick = () => {

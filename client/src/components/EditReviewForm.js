@@ -16,7 +16,10 @@ const EditReviewForm = (props) => {
     const reviewList = props.movie.reviews;
     const index = reviewList.findIndex((review) => review.id === props.review.id);
     const splicedReview = reviewList.toSpliced(index, 1, updatedReview);
-    props.setMovie({ title: props.movie.title, reviews: splicedReview });
+    props.setMovie({
+      ...props.movie,
+      reviews: splicedReview,
+    });
     props.setIsClicked(false);
   };
 
