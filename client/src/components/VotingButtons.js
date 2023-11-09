@@ -5,19 +5,20 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 
 const VotingButtons = (props) => {
-  const [voteCount, setVoteCount] = useState(props.review.voteCount || 0);
+  const loadedVotes = props.review.voteCount || 0;
+  const [voteCount, setVoteCount] = useState(loadedVotes);
 
   const upVoteClick = async (event) => {
     event.preventDefault();
     castVote(1, props.review.id).then((newVote) => {
-      setVoteCount(voteCount + newVote.vote);
+      setVoteCount(loadedVotes + newVote.vote);
     });
   };
 
   const downVoteClick = async (event) => {
     event.preventDefault();
     castVote(-1, props.review.id).then((newVote) => {
-      setVoteCount(voteCount + newVote.vote);
+      setVoteCount(loadedVotes + newVote.vote);
     });
   };
 
