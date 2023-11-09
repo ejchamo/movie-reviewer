@@ -39,10 +39,10 @@ const ReviewTile = (props) => {
       }
     };
     editButton = (
-      <input class="edit-del-button" type="submit" onClick={editButtonOnClick} value="Edit" />
+      <input className="edit-del-button" type="submit" onClick={editButtonOnClick} value="Edit" />
     );
     deleteButton = (
-      <input class="edit-del-button" type="submit" onClick={deleteOnClick} value="Delete" />
+      <input className="edit-del-button" type="submit" onClick={deleteOnClick} value="Delete" />
     );
   }
 
