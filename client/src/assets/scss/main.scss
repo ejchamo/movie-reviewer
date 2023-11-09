@@ -1,6 +1,7 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
+
 // place global css here
 *,
 *::before,
@@ -17,19 +18,39 @@ $midnight-blue: #14213d;
 $pumpkin-orange: #fca311;
 $cool-gray: #e5e5e5;
 
+body {
+  background-color: $cool-gray;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .review {
   list-style: none;
   color: $midnight-blue;
   text-align: left;
   width: 90%;
   padding: 1rem;
-  background-color: lightgray;
-  margin-top: 1rem;
+  background-color: $cool-gray;
+  margin-top: 1.5rem;
   border-style: solid;
+  border-color: lightgray;
 }
 
-.edit-del-button {
-  background-color: white;
+.review-buttons-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-del-button,
+.submit-pic-button {
+  background-color: $pumpkin-orange;
+  color: $midnight-blue;
+  margin: 0.2rem;
+  border: none;
+}
+.edit-del-button:hover,
+.submit-pic-button:hover {
+  background-color: #fcb33d;
+  color: $midnight-blue;
 }
 
 .top-bar {
@@ -98,24 +119,38 @@ body {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
+  border: solid 2px $cool-gray;
+}
+
+.profile-detail-container {
+  background-color: $midnight-blue;
+  padding: 2rem;
+  margin: auto;
+  margin-top: 2rem;
+  height: 75vh;
+  width: 50vh;
+  box-shadow: 2.5px 1px 1px grey;
 }
 
 .drag-n-drop {
   background-color: lightgray;
   width: 10rem;
   height: 6rem;
-  border-radius: 5%;
   text-align: center;
-  box-shadow: 2.5px 1px 1px grey;
+  box-shadow: 1.5px 0.7px 0.7px grey;
   margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
 }
 
 .movie-detail-container,
 .reviews-list-container {
-  background-color: $cool-gray;
+  background-color: $midnight-blue;
   padding: 2rem;
   margin: 0.5rem;
   height: calc(100vh - 100px);
+  box-shadow: 2.5px 1px 1px grey;
 }
 
 .movie-title {
@@ -158,6 +193,40 @@ body {
   height: 300px;
 }
 
-.movie-show-rating {
+.movie-show-rating,
+.movie-showpage-title,
+.profile-showpage-title,
+.profile-showpage-email {
   margin: 1rem;
+  color: whitesmoke;
+}
+
+.movie-show-rating {
+  font-weight: bold;
+}
+
+.add-review-button {
+  background-color: $pumpkin-orange;
+  color: $midnight-blue;
+  margin: 1 rem;
+  padding: 0.5rem;
+  border: none;
+}
+
+.add-review-button:hover {
+  background-color: #fcb33d;
+}
+
+.vote-count {
+  color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+}
+.vote-count-num {
+  margin-left: 0.3rem;
+  font-weight: bold;
+}
+
+.thumb-buttons {
+  margin: 0.2rem;
 }

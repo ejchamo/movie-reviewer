@@ -20,7 +20,9 @@ const MovieShow = (props) => {
   let newReviewFormLink;
   if (props.user) {
     newReviewFormLink = (
-      <Link to={`/movies/${props.match.params.id}/reviewForm`}>Add a new review here!</Link>
+      <Link className="add-review-button" to={`/movies/${props.match.params.id}/reviewForm`}>
+        Add a new review here!
+      </Link>
     );
   }
 
@@ -31,9 +33,13 @@ const MovieShow = (props) => {
           <div className="medium-cell-block-container">
             <div className="grid-x grid-padding-x">
               <div className="movie-detail-container cell medium-6 medium-cell-block-y">
-                <h1>{movie.title}</h1>
+                <h1 className="movie-showpage-title">{movie.title}</h1>
                 <img className="movie-poster" src={`${movie.imageUrl}`} />
-                <div className="movie-show-rating">Rating: {movie.averageRating}</div>
+                {movie.averageRating == "NaN" ? (
+                  <div className="movie-show-rating">No rating yet.</div>
+                ) : (
+                  <div className="movie-show-rating">Rating: {movie.averageRating}</div>
+                )}
               </div>
               <div className="reviews-list-container cell medium-6 medium-cell-block-y">
                 {newReviewFormLink}
